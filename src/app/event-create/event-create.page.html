@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked" class="my-label">Schedule Category</ion-label>
+    <ion-input
+      [(ngModel)]="scheduleCat"
+      type="text"
+      placeholder="which category of this schedule?"
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked" class="my-label">Schedule</ion-label>
+    <ion-input
+      [(ngModel)]="schedule"
+      type="text"
+      placeholder="What schedule you want to add?"
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Start Date</ion-label>
+    <ion-datetime
+      [(ngModel)]="startDate"
+      displayFormat="D MMM, YY"
+      pickerFormat="DD MMM YYYY"
+      min="2020"
+      max="2020-12-31"
+      >
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>End Date</ion-label>
+    <ion-datetime
+      [(ngModel)]="endDate"
+      displayFormat="D MMM, YY"
+      pickerFormat="DD MMM YYYY"
+      min="2020"
+      max="2020-12-31"
+      >
+    </ion-datetime>
+  </ion-item>
+
+  <ion-button
+    expand="block"
+    (click)="showToast()"
+    (click)="createEvent(scheduleCat, schedule, startDate, endDate)"
+    (click)="showResult()"
+  >
+    Create Schedule
+  </ion-button>
+  <ion-button (click)="checkList()" expand="block"> Check List </ion-button>
+
+</ion-content>
